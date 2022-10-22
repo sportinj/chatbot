@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "chatbot",
+            "type": "python",
+            "request": "launch",
+            "module": "chatbot",
+            "justMyCode": true,
+            "console": "internalConsole"
+        },
+        
+    ]
+}
