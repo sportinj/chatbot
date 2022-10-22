@@ -1,6 +1,7 @@
 from telegram import ReplyKeyboardRemove, Update
 from telegram.ext import CallbackContext, ConversationHandler
 
+from chatbot.clients.api import client as api
 from chatbot.conversation import states
 from chatbot.conversation.schemas import JSON
 
@@ -9,7 +10,11 @@ def team_choice(update: Update, context: CallbackContext[JSON, JSON, JSON]) -> i
     """Ask the user for info about the selected predefined choice."""
     assert update.message is not None
     assert context.user_data is not None
-    question = 'Какую команду?'
+
+    teams = api.teams.get_all()
+    team_names = [team.name for team in teams]
+
+    question = 'Какую команду из {teams}?'.format(teams=','.join(team_names))
     context.user_data['choice'] = 'team'
     update.message.reply_text(question, reply_markup=ReplyKeyboardRemove())
 
