@@ -1,0 +1,3 @@
+mypy==0.982
+wemake-python-styleguide==0.17.0
+pydantic
