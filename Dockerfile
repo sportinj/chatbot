@@ -5,5 +5,5 @@ WORKDIR /app
 COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 
-COPY bot /app/bot
-CMD [ "python", "-m", "bot" ]
+COPY chatbot /app/chatbot
+CMD [ "python", "-m", "chatbot" ]
