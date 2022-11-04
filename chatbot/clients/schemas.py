@@ -28,3 +28,7 @@ class Injury(BaseModel):
     description: str
     start_date: datetime
     end_date: datetime | None
+
+    def display(self) -> str:
+        dates = f'{self.start_date}-{self.end_date}' if self.end_date else self.start_date
+        return f'{dates} {self.name}\n{self.description}'
